@@ -1,0 +1,18 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url("C:\laragon\www\simi\public\img\backs.png"); /*Ganti dengan path gambar Anda */
+    background-size: cover; /* Pastikan gambar memenuhi seluruh layar */
+    background-repeat: no-repeat; /* Jangan ulangi gambar */
+    background-position: center center; /* Pusatkan gambar */
+    background-attachment: fixed; /* Buat gambar tetap saat di-scroll (opsional) */
+    width: 100%;
+    height: max-content;
+    background-color: rgba(255, 255, 255, 0.5);
+}
