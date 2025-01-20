@@ -32,7 +32,7 @@
     </div>
 
     @if(session('succes'))
-    <div class="alert alert-success text-center  text-white justify-content-center text-center bg-green-700 p-4 rounded-sm">
+    <div class="alert alert-success text-white justify-content-center text-center bg-green-700 p-4 rounded-sm">
         {{ session('succes') }}
     </div>
     @endif
@@ -44,12 +44,12 @@
        <span class="block sm:inline">{{ $message }}</span>
       </div>   
       @enderror
-      <form class="space-y-6" action="{{ route('auth/login') }}" method="POST">
+      <form class="space-y-6" action="{{ route('authLogin') }}" method="POST">
         @csrf 
         <div>
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Email :</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" placeholder="your email" autocomplete="email" required class=" mx-auto block w-full rounded-md border-0 py-2 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-wrap text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+            <input id="email" name="email" type="email" placeholder="your email" autocomplete="email" required class="text-gray-900 mx-auto block w-full rounded-md border-0 py-2 pl-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-wrap placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
           </div>
         </div>
   
@@ -78,12 +78,26 @@
   
       <p class="mt-6 ml-2 text-left  text-sm/6 text-gray-500">
         Belum punya akun?
-        <a href="/register" class="font-semibold text-indigo-600 hover:text-indigo-500 hover:underline"> Daftar </a>
+        <a href="/homeRegister" class="font-semibold text-indigo-600 hover:text-indigo-500 hover:underline"> Daftar </a>
       </p>
     </div>
   </div>
   
 </body>
+
+<div class="mt-10 ml-5">
+  <div class="flex grid-rows-3 gap-3 justify-items-start">
+    <div class="grid grid-flow-col auto-cols-max gap-4">
+      <h1 class="font-bold text-black-600">Copyright &copy; 2024 
+        <a href="/">SIMI</a>.
+      </h1>
+      All rights reserved
+      <div class="font-bold ">
+          <b>Version</b> 1.0
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </html>

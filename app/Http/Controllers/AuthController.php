@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User; // Import model User
 use Illuminate\Support\Facades\Hash;
 
-use function PHPUnit\Framework\returnSelf;
-
 class AuthController extends Controller
 {
 
@@ -53,6 +51,10 @@ class AuthController extends Controller
         return redirect()->intended('/dashboard');
     }
 
+    function pageRegister(){
+        return view('auth.register',['title' => 'Halaman register']);
+    }
+
     public function regist(Request $request)
     {
         //validasi form input
@@ -76,9 +78,21 @@ class AuthController extends Controller
 
 
         auth()->login($user);
-
+        
         return redirect()->intended('/')->with('succes','Akun berhasil dibuat!');
     }
+
+    public function dashboard()
+    {
+        if (auth()->user()->role === 'admin') {
+            return view('admin.dashboard');
+        } elseif (auth()->user()->role === 'employee') {
+            return view('employee.dashboard');
+        }
+
+        abort(403, 'Unauthorized action.');
+    }
+
     
 
     public function logout(Request $request)
@@ -90,7 +104,5 @@ class AuthController extends Controller
 
         return redirect('/');
     }
-
-
 
 }

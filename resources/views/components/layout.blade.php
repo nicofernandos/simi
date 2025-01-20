@@ -9,6 +9,12 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href=" {{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+    <link rel="stylesheet" href="{{ asset('charts/css/flowbite.min.css') }}">
+
+    <!-- ICON FONT AWESOME-->
+    <link rel="stylesheet" href="{{ asset('charts/css/font-awesome.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('charts/css/ionicons.min.css') }}">
 
     <!--FOOTER-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
