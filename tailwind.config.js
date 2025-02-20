@@ -14,21 +14,10 @@ export default {
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
                 body: [
-                    "Inter",
+                    "Inter", // Font utama
                     "ui-sans-serif",
                     "system-ui",
-                    "-apple-system",
-                    "system-ui",
-                    "Segoe UI",
-                    "Roboto",
-                    "Helvetica Neue",
-                    "Arial",
-                    "Noto Sans",
-                    "sans-serif",
-                    "Apple Color Emoji",
-                    "Segoe UI Emoji",
-                    "Segoe UI Symbol",
-                    "Noto Color Emoji",
+                    "sans-serif", // Font fallback
                 ],
             },
             colors: {
@@ -49,8 +38,6 @@ export default {
         },
     },
     plugins: [
-        require("flowbite/plugin")({
-            charts: true,
-        }),
+        require("flowbite/plugin"), // Jika Anda menggunakan Flowbite, hapus opsi charts jika tidak
     ],
 };

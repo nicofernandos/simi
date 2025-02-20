@@ -31,9 +31,9 @@
       <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Masukkan akun</h2>
     </div>
 
-    @if(session('succes'))
+    @if(session('success'))
     <div class="alert alert-success text-white justify-content-center text-center bg-green-700 p-4 rounded-sm">
-        {{ session('succes') }}
+        {{ session('success') }}
     </div>
     @endif
   
@@ -78,7 +78,7 @@
   
       <p class="mt-6 ml-2 text-left  text-sm/6 text-gray-500">
         Belum punya akun?
-        <a href="/homeRegister" class="font-semibold text-indigo-600 hover:text-indigo-500 hover:underline"> Daftar </a>
+      <a href="/register" class="font-semibold text-indigo-600 hover:text-indigo-500 hover:underline"> Daftar </a>
       </p>
     </div>
   </div>

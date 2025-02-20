@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
+
     //view halaman depan login
-    public function FormLogin()
+    public function index()
     {
         return view('auth.login',
     [
@@ -46,9 +47,14 @@ class AuthController extends Controller
                 'password' => 'Password salah.',
             ])->withInput();
         }
-    
-        // Jika berhasil login, redirect ke dashboard
-        return redirect()->intended('/dashboard');
+
+        if ($user->role === 'admin') {
+            return redirect()->route('pageTask');
+        } elseif ($user->role === 'employee') {
+            return redirect()->route('empoDash');
+        }
+
+        redirect()->back()->with('error', 'Access Denied: You are not authorized to access this page.');
     }
 
     function pageRegister(){
@@ -57,41 +63,48 @@ class AuthController extends Controller
 
     public function regist(Request $request)
     {
-        //validasi form input
+        // Validasi form input
         $validateData = $request->validate([
             'name' => 'required|string|min:4|max:255',
             'username' => 'required|string|min:4|max:122',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:7|confirmed',
         ]);
-        
-        //register
-        $user = User::create([
-            'name' => $validateData['name'],
-            'username' => $validateData['username'],
-            'email' => $validateData['email'],
-            'password' => Hash::make($validateData['password']),
-            'role' => 'employee',
-            'status_role' => 'pen',
-            'department_id' => 1,
-        ]);
+    
+        try {
+            // Mendaftar pengguna baru
+            $user = User::create([
+                'name' => $validateData['name'],
+                'username' => $validateData['username'],
+                'email' => $validateData['email'],
+                'password' => Hash::make($validateData['password']),
+                'role' => 'employee',
+                'status_role' => 'pen',
+                'department_id' => 1,
+            ]);
 
-
-        auth()->login($user);
-        
-        return redirect()->intended('/')->with('succes','Akun berhasil dibuat!');
-    }
-
-    public function dashboard()
-    {
-        if (auth()->user()->role === 'admin') {
-            return view('admin.dashboard');
-        } elseif (auth()->user()->role === 'employee') {
-            return view('employee.dashboard');
+            // Login pengguna setelah registrasi
+            auth()->login($user);
+    
+            // Redirect dengan pesan sukses
+            return redirect()->route('authLogin')->with('success', 'Akun berhasil dibuat!');
+        } catch (\Exception $e) {
+            // Menangani kesalahan jika ada
+            return redirect()->route('authLogin')->with('error', 'Terjadi kesalahan saat mendaftar.')->withInput();
         }
-
-        abort(403, 'Unauthorized action.');
     }
+    
+
+    // public function dashboard()
+    // {
+    //     if (auth()->user()->role === 'admin') {
+    //         return view('admin.dashboard');
+    //     } elseif (auth()->user()->role === 'employee') {
+    //         return view('employee.dashboard');
+    //     }
+
+    //     abort(403, 'Unauthorized action.');
+    // }
 
     
 
@@ -102,7 +115,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('authLogin');
     }
 
 }

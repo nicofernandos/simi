@@ -8,16 +8,12 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <x-nav-link href="/" :active="request()->is('/')" >Home</x-nav-link>
-            @if (auth()->user()->role == 'admin' && auth()->user()->status_role == 'acc');
-             <x-nav-link-dwabsensi> Absensi </x-nav-link-dwabsensi>
-             @endif
-             <x-nav-link href="/absent" :active="request()->is('absent')" >Absensi</x-nav-link>
-              <x-nav-link href="/report" :active="request()->is('report')" >Laporan Kerja</x-nav-link>
-              <x-nav-link href="/reportAbs" :active="request()->is('reportAbs')" >Kelola Absensi</x-nav-link>
-              <x-nav-link href="/employes" :active="request()->is('employes')" >Kelola Karyawan</x-nav-link>
-              <x-nav-link href="/depart" :active="request()->is('depart')" >Departemen</x-nav-link>
-              <x-nav-link href="/prof" :active="request()->is('prof')" >Profile</x-nav-link>
+              <x-nav-link href="{{ route('empoDash') }}" :active="request()->is('empoDash')" >Home</x-nav-link>
+              <x-nav-link href="{{ route('empoTask') }}" :active="request()->is('empoTask')" >Daftar Pekerjaan</x-nav-link>
+              <x-nav-link href="{{ route('update') }}" :active="request()->is('update')" >Update Pekerjaan</x-nav-link>
+              <x-nav-link href="{{ route('data') }}" :active="request()->is('data')" >Data Pekerjaan</x-nav-link>
+              <x-nav-link href="{{ route('reportTask') }}" :active="request()->is('reportTask')" >Laporan Pekerjaan</x-nav-link>
+              <x-nav-link href="/profile" :active="request()->is('profile')" >Profile</x-nav-link>
               <x-nav-link-log href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" :active="request()->is('logout')" class="logouts">
                 Logout
             </x-nav-link-log>

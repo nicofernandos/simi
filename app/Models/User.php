@@ -3,11 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Department;
+use function PHPSTORM_META\map;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-
-use function PHPSTORM_META\map;
 
 class User extends Authenticatable
 {
@@ -26,6 +28,7 @@ class User extends Authenticatable
         'password',
         'role',
         'status_role',
+        'department_id',
     ];
 
     /**
@@ -49,5 +52,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+    
+    public static function getEmployees()
+    {
+        return self::where('role','employee')->get();
     }
 }

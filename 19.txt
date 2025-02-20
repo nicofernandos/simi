@@ -1,0 +1,11 @@
+    // route::prefix('employes')->middleware('role:admin')->group(function (){
+    //     route::get('/',[EmployeeController::class,'index'])->name('pageEmpo');
+    //     route::get('/editEmpo',[EmployeeController::class,'EditEmpo'])->name('editEmpo');
+    //     route::get('/addEmpo',[EmployeeController::class,'AddEmpo'])->name('addEmpo');
+    //     route::get('/test',[EmployeeController::class,'Testing'])->name('Testing');
+    // });
+    
+    // route::prefix('profile')->group( function(){
+    //     route::get('/',[ProfileController::class,'index'])->name('pageProfile');
+    //     route::put('/profile',[ProfileController::class,'update'])->name('updateProfile');
+    // });

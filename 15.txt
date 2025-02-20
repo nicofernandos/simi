@@ -1,0 +1,38 @@
+function no_code(){
+    $code ='1234567890'.time();
+    $string ='';
+    for ($i = 0; $i<3;$i++){
+        $pos = rand(0,strlen($code)-1);
+        $string .= $code[$pos];
+    }
+    return 'PHR/'.date('Y').'/'.date('m').'/'.date('d').'/'.$string;
+}
+
+
+   // Route::get('/', function(){
+    //     return view('dashboard', ['title' => 'Dashboard']);
+    // })->middleware('role:employee');
+
+    // Route::get('/admin', function () {
+    //     return view('admin.dashboard');
+    // })->middleware('role:admin');
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->middleware('role:admin')->group(function(){
+        route::get('/admin',function(){return view('admin.dashboard');});
+        route::get('/',[TaskController::class,'index'])->name('pageTask');
+        route::get('/kelolaPekerjaan',[TaskController::class,'kelolaKerja'])->name('kelola_Pekerjaan');
+        route::get('/tambahPekerjaan',[TaskController::class,'tambahKerja'])->name('tambahPekerjaan');
+        route::post('/tambahPekerjaan',[TaskController::class,'tambahPekerjaan'])->name('addTask');
+        route::get('/detailPekerjaan',[TaskController::class,'detailTask'])->name('detailPekerjaan');
+        Route::get('/tasks',[TaskController::class,'kelolaTask'])->name('kelola_task');
+        route::get('/reportTask',[TaskController::class,'repTask'])->name('repTask');
+        route::get('/departement',[DepartementController::class,'index'])->name('admindepart');
+        route::get('/departement/addDepart',[DepartementController::class,'add'])->name('addDepart');
+        route::get('/employe',[EmployeeController::class,'index'])->name('employe');
+        route::get('/work',[WorkController::class,'index'])->name('work');
+    }) {
+    Route::prefix('empo')->middleware('role:employee')->group(function(){
+        route::get('/empo',function(){return view('empo.dashboard');});
+
+    )};

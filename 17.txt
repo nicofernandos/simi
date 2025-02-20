@@ -1,0 +1,29 @@
+ public function edit(int $department)
+    {
+        $data = Department::where('id',$department)->first();
+
+        return view('components.template.departement.editDepart', [
+            'title' => 'Halaman Edit Departement',
+            'department' => $data
+        ]);
+        
+    }
+    
+
+    public function update(Request $request, Department $department)
+    {
+
+        $validasi = $request->validate([
+            'id' => 'required',
+            'no_id' => 'required',
+            'name' => ['required', 'string', Rule::unique('departments', 'name')->ignore($department->id)],
+        ]);
+    
+        try {
+            $department->update($validasi);
+    
+            return redirect()->route('departement.index')->with('success', 'Departement berhasil diupdate!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Departement gagal update! Error: ' . $e->getMessage());
+        }
+    }

@@ -9,7 +9,7 @@
             <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center">
                 <div>
-                <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Users Register</h5>
+                <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Pekerjaan</h5>
                 </div>
             </div>
             </div>

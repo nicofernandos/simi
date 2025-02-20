@@ -1,0 +1,8 @@
+Route::middleware('auth')->group(function(){
+//     Route::middleware('role:employee')->group(function(){
+//         route::get('/',[TaskController::class,'index'])->name('pageTask');
+//     });
+//     Route::middleware('role:admin')->group(function(){
+//         Route::get('/tasks',[TaskController::class,'kelolaTask'])->name('kelola_task');
+//     });
+// });
