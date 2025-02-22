@@ -1,11 +1,11 @@
-@include('components.template.base.start')
-@include('components.template.base.navbar')
+@include('components.manager.start')
+@include('components.manager.navbar')
 
-<!-- start wrapper -->
+<!-- strat wrapper -->
 <div class="h-screen flex flex-row flex-wrap">
-    @includeIf('components.template.base.sidebar')
+    @includeIf('components.manager.sidebar')
 
-    <!-- start content -->
+            <!-- start content -->
     <div class="bg-gray-100 flex-1 p-6 md:mt-16">
         <h1 class="font-semibold text-black text-end hover:underline hover:text-blue-700">
             {{ $title }}
@@ -94,4 +94,4 @@
 </div>
 <!-- end wrapper -->
 
-@include('components.template.base.end')
+@include('components.manager.end')

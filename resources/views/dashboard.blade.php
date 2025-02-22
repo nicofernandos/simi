@@ -9,7 +9,7 @@
             <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center">
                 <div>
-                <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Pekerjaan</h5>
+                <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Total Pekerjaan {{ $tasks }}</h5>
                 </div>
             </div>
             </div>
@@ -37,26 +37,33 @@
         colors: ["#1A56DB", "#FDBA8C"],
         series: [
             {
-            name: "Accepted",
+            name: "Total Pekerjaan",
             color: "#1A56DB",
             data: [
-                { x: "Mon", y: 3 },
+                { x: "Total", y: {{ $tasks }} },
 
             ],
             },
             {
-            name: "Pending ",
+            name: "Pekerjaan Selesai ",
             color: "#fffb00",
             data: [
-                { x: "Mon", y: 2 },
+                { x: "Total", y: {{ $tasksAccepted }} },
 
             ],
             },
             {
-            name: "Rejected",
+            name: "Pekerjaan Progress",
             color: "#760529",
             data: [
-                { x: "Mon", y: 1 },
+                { x: "Total", y: {{ $tasksPending }} },
+            ],
+            },
+            {
+            name: "Pekerjaan Pending",
+            color: "#648187",
+            data: [
+                { x: "Total", y: {{ $tasksProgress }} },
             ],
             },
         ],

@@ -8,7 +8,7 @@
                 
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
-                    <div class="h6 text-indigo-700 fad fa-shopping-cart"></div>
+                    <div class="h6 text-indigo-700 fad fa-users "></div>
                     <span class="rounded-full text-white badge bg-teal-400 text-xs">
                         12%
                         <i class="fal fa-chevron-up ml-1"></i>
@@ -36,7 +36,7 @@
                 
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
-                    <div class="h6 text-red-700 fad fa-store"></div>
+                    <div class="h6 text-red-700 fad fa-map"></div>
                     <span class="rounded-full text-white badge bg-red-400 text-xs">
                         6%
                         <i class="fal fa-chevron-down ml-1"></i>

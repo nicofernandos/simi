@@ -13,38 +13,24 @@
       </div>
       <!-- end sidebar toggle -->
 
-      <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
+      <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Home</p>
 
       <!-- link -->
-      <a href="{{ route('dashboard') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="{{ route('dashMan') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-house text-xs mr-2"></i>                
          Dashboard
       </a>
       <!-- end link -->
 
       <!-- link -->
-      <a href="{{ route('kelola_Pekerjaan') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-        <i class="fad fa-pen text-xs mr-2"></i>
-        Kelola Pekerjaan
-      </a>
-      <!-- end link -->
-      
-      <!-- link -->
-      <a href="/admin/work" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-        <i class="fad fa-calendar text-xs mr-2"></i>
-        Data Pekerjaan
-      </a>
-      <!-- end link -->
-
-      <!-- link -->
-      <a href="/admin/employe" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="{{ route('empo') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-users text-xs mr-2"></i>
         Kelola Karyawan
       </a>
       <!-- end link -->
       
       <!-- link -->
-      <a href="/admin/departement" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="{{ route('depart') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-building text-xs mr-2"></i>
         Kelola Departement
       </a>

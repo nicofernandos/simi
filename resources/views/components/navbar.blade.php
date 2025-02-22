@@ -13,7 +13,7 @@
               <x-nav-link href="{{ route('update') }}" :active="request()->is('update')" >Update Pekerjaan</x-nav-link>
               <x-nav-link href="{{ route('data') }}" :active="request()->is('data')" >Data Pekerjaan</x-nav-link>
               <x-nav-link href="{{ route('reportTask') }}" :active="request()->is('reportTask')" >Laporan Pekerjaan</x-nav-link>
-              <x-nav-link href="/profile" :active="request()->is('profile')" >Profile</x-nav-link>
+              <x-nav-link href="{{ route('pageProfile') }}" :active="request()->is('pageProfile')" >Profile</x-nav-link>
               <x-nav-link-log href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" :active="request()->is('logout')" class="logouts">
                 Logout
             </x-nav-link-log>

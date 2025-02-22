@@ -10,8 +10,17 @@ use Carbon\Carbon;
 class TaskEmpoController extends Controller
 {
     function index(){
+        $tasks = Task::where('user_id',auth()->user()->id)->count();
+        $userId = auth()->user()->id;
+        $tasksAccepted = Task::where('user_id', $userId)->where('task_status', 'selesai')->count();
+        $tasksPending = Task::where('user_id', $userId)->where('task_status', 'pending')->count();
+        $tasksProgress = Task::where('user_id', $userId)->where('task_status', 'progress')->count();
         return view('dashboard',[
-            'title' => 'Halaman Dashboard'
+            'title' => 'Halaman Dashboard',
+            'tasks' => $tasks,
+            'tasksAccepted' => $tasksAccepted,
+            'tasksPending' => $tasksPending,
+            'tasksProgress' => $tasksProgress,
         ]);
     }
 
@@ -126,34 +135,38 @@ class TaskEmpoController extends Controller
     }
 
     public function report(Request $request)
-    {
-        // Validasi input tanggal
-        $request->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
-        ]);
+    {   
+            // Deklarasikan variabel di luar blok if
+        $startDate = null;
+        $endDate = null;
 
-        // Parsing tanggal mulai dan selesai
-        $startDate = Carbon::parse($request->start_date)->startOfDay();
-        $endDate = Carbon::parse($request->end_date)->endOfDay();
+        // Cek apakah query param ada dan terisi
+        if ($request->filled(['start_date', 'end_date'])) {
+            // Validasi input tanggal
+            $request->validate([
+                'start_date' => 'required|date',
+                'end_date' => 'required|date|after_or_equal:start_date',
+            ]);
 
-        // Mendapatkan laporan dengan status selesai dan user yang login
-        $laporan = Task::where('user_id', auth()->user()->id) // Filter berdasarkan ID pengguna yang login
-                    ->where('task_status', 'selesai') // Status pekerjaan yang selesai
-                    ->whereBetween('date', [$startDate, $endDate]) // Rentang tanggal
-                    ->get();
-
-        // Mengecek apakah laporan kosong
-        if ($laporan->isEmpty()) {
-            return redirect()->route('reportTask')->with('error', 'Data tidak ditemukan');
+            // Parsing tanggal mulai dan selesai
+            $startDate = Carbon::parse($request->start_date)->startOfDay();
+            $endDate = Carbon::parse($request->end_date)->endOfDay();
         }
+
+        // // Mendapatkan laporan dengan status selesai dan user yang login
+        $laporan = Task::where('user_id', auth()->user()->id) // Filter berdasarkan ID pengguna yang login
+            ->where('task_status', 'selesai') // Status pekerjaan yang selesai
+            // cek apakah query param ada dan terisi
+            ->when($request->filled(['start_date', 'end_date']), function ($query) use ($startDate, $endDate) {
+                $query->whereBetween('date', [$startDate, $endDate]); // Rentang tanggal
+            })
+            ->get();
 
         return view('components.employee.empo.report', [
             'title' => 'Laporan Pekerjaan',
-            'laporan' => $laporan,
+            'laporan' => $laporan ?? [],
             'start_date' => $request->start_date,
             'end_date' => $request->end_date
         ]);
     }
-
 }

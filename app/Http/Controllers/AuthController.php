@@ -52,6 +52,8 @@ class AuthController extends Controller
             return redirect()->route('pageTask');
         } elseif ($user->role === 'employee') {
             return redirect()->route('empoDash');
+        } elseif($user->role === 'manager'){
+            return redirect()->route('dashMan');
         }
 
         redirect()->back()->with('error', 'Access Denied: You are not authorized to access this page.');
@@ -81,6 +83,7 @@ class AuthController extends Controller
                 'role' => 'employee',
                 'status_role' => 'pen',
                 'department_id' => 1,
+                'image' => 'default.jpg',
             ]);
 
             // Login pengguna setelah registrasi

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AbsentController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use SebastianBergmann\CodeUnit\FunctionUnit;
 use App\Http\Controllers\Admin\TaskController;
@@ -14,7 +15,10 @@ use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\DepartementController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Employee\TaskEmpoController;
+use App\Http\Controllers\Manager\ManagerController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 Route::get('/',[AuthController::class, 'index'])->name('authLogin');
 Route::post('/', [AuthController::class, 'login'])->name('submitLogin');
@@ -52,7 +56,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin', function () {
             return view('admin.dashboard');
         });
-
+        Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
         Route::get('/', [TaskController::class, 'index'])->name('pageTask');
         Route::get('/kelolaPekerjaan', [TaskController::class, 'index'])->name('kelola_Pekerjaan');
         Route::get('/tambahPekerjaan', [TaskController::class, 'tambahKerja'])->name('tambahKerja');
@@ -74,9 +78,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{id}',[EmployeeController::class,'destroy'])->name('destroy');
         Route::get('/work', [WorkController::class, 'index'])->name('work');
         Route::get('/viewWork/{id}',[WorkController::class, 'view'])->name('viewWork');
-        Route::get('/report',[ReportController::class,'index'])->name('report');
+        Route::get('/report', [ReportController::class, 'index'])->name('report');
         
-
+        
     });
     Route::prefix('empo')->middleware('role:employee')->group( function(){
         Route::get('/',[TaskEmpoController::class,'index'])->name('empoDash');
@@ -89,6 +93,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/reportTask',[TaskEmpoController::class,'report'])->name('reportTask');
     });
 
+    Route::prefix('manager')->middleware('role:manager')->group(function(){
+        Route::get('/',[ManagerController::class,'index'])->name('dashMan');
+        Route::get('/report',[ManagerController::class,'report'])->name('report');
+        Route::get('/depart',[ManagerController::class,'depart'])->name('depart');
+        Route::get('/empo',[ManagerController::class,'empo'])->name('empo');
+    });
+
     // route::prefix('employes')->middleware('role:admin')->group(function (){
     //     route::get('/',[EmployeeController::class,'index'])->name('pageEmpo');
     //     route::get('/editEmpo',[EmployeeController::class,'EditEmpo'])->name('editEmpo');
@@ -96,8 +107,9 @@ Route::middleware('auth')->group(function () {
     //     route::get('/test',[EmployeeController::class,'Testing'])->name('Testing');
     // });
     
-    route::prefix('profile')->group( function(){
+    route::prefix('profile')->middleware('auth')->group( function(){
         route::get('/',[ProfileController::class,'index'])->name('pageProfile');
+        Route::get('/profile/edit',[ProfileController::class,'edit'])->name('editProfile');
         route::put('/profile',[ProfileController::class,'update'])->name('updateProfile');
     
     });
