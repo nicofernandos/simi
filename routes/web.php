@@ -95,7 +95,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('manager')->middleware('role:manager')->group(function(){
         Route::get('/',[ManagerController::class,'index'])->name('dashMan');
-        Route::get('/report',[ManagerController::class,'report'])->name('report');
+        Route::get('/report',[ManagerController::class,'report'])->name('reportMan');
         Route::get('/depart',[ManagerController::class,'depart'])->name('depart');
         Route::get('/empo',[ManagerController::class,'empo'])->name('empo');
     });

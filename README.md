@@ -1,68 +1,251 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Aplikasi Sistem Informasi Monitoring Karyawan (SIMI)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+_Aplikasi berbasis Website Sistem Informasi Monitoring Karyawan, fungsionalitas dari aplikasi tersebut untuk memonitoring pekerjaan karyawan dan mengefesiensikan sebuah perusahaan agar mencapai tujuan yang ada serta dapat mengatur pekerjaan yang dilakukan oleh karyawan_
 
-## 1. About Laravel
+## Fitur
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1.  **Manager**
+    -   **Dashboard**
+        > Dashboard manager yang menampilkan :
+        >
+        > -   Data karyawan
+        > -   Total pekerjaan
+        > -   Departement perusahaan
+        > -   Pekerjaan selesai
+        > -   Pekerjaan progress
+        > -   Pekerjaan Pending
+    -   **Kelola Karyawan**
+        > Menampilkan data karyawan yang diantaranya seperti :
+        >
+        > -   ID Karyawan
+        > -   Nama
+        > -   Username
+        > -   Email
+        > -   Departement
+    -   **Kelola Departement**
+        > Menampilkan data Departement yang diantaranya seperti :
+        >
+        > -   ID Departement
+        > -   No Departement
+        > -   Nama Departement
+        > -   Description
+        >     > Deskripsi pekerjaan dari departement tersebut
+    -   **Laporan Pekerjaan**
+        > Menampilkan data dari laporan pekerjaan yang diantaranya seperti :
+        >
+        > -   Nomor Pekerjaan
+        > -   User ID
+        > -   Nama
+        > -   Pekerjaan
+        > -   Lokasi
+        > -   Blok
+        > -   Tanggal
+        >     > Laporan pekerjaan dapat ditentukan oleh range tanggal
+2.  **Admin**
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    -   **Dashboard**
+        > Dashboard admin yang ditampilkan :
+        >
+        > -   User terdaftar
+        > -   Total Pekerjaan
+        > -   Total Departement
+        > -   Pekerjaan Selesai
+    -   **Kelola Pekerjaan**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+        > Kelola Pekerjaan merupakan sistem CRUD untuk mengelola pekerjaan :
+        >
+        > -   **Add / Tambah Pekerjaan**
+        >     > Form add/tambah pekerjaan yang berisi seperti :
+        >     >
+        >     > -   Nomor pekerjaan : default sudah ada untuk membuat unique setiap nomor pekerjaan
+        >     > -   Tanggal penyelesaian
+        >     > -   Nama pekerja
+        >     > -   Description ->Deskripsi pekerjaan.
+        >     > -   Blok -> Blok area.
+        >     > -   Penyelesaian -> Date.
+        >     > -   Title -> Judul pekerjaan.
+        >     > -   Lokasi -> Lokasi Pekerjaan.
+        >     > -   Dokumentasi -> JPG.
+        > -   **Edit Pekerjaan**
+        >     > Form edit pekerjaan yang dapat diedit sebagai berikut :
+        >     >
+        >     > -   Penyelesaian.
+        >     > -   Nama pekerja.
+        >     > -   Status pekerjaan.
+        >     > -   Title.
+        >     > -   Lokasi.
+        >     > -   Blok.
+        >     > -   Dokumentasi.
+        > -   **View Pekerjaan**
+        >     > Menampilkan detail data pekerjaan
+        >     >
+        >     > -   Nomor Pekerjaan.
+        >     > -   Nama pekerja.
+        >     > -   Tanggal Penyelesaian.
+        >     > -   Deskripsi pekerjaan.
+        >     > -   Blok.
+        >     > -   Title.
+        >     > -   Lokasi.
+        >     > -   Dokumentasi.
+        > -   **Hapus data pekerjaan**
 
-## 2. Learning Laravel
+    -   **Kelola karyawan**
+        > Kelola karyawan merupakan sebuah CRUD dalam mengelola karyawan :
+        >
+        > -   **Add / Tambah Karyawan**
+        >     > Menambahkan sebuah data karayawan yang berisi form sebagai berikut :
+        >     >
+        >     > -   Nama.
+        >     > -   Username.
+        >     > -   Email.
+        >     > -   Role.
+        >     > -   Departement.
+        >     > -   Password .
+        >     > -   Konfiramsi Password .
+        > -   **Edit**
+        >     > Mengedit data karyawan seperti :
+        >     >
+        >     > -   Nama
+        >     > -   Username
+        >     > -   Email
+        >     > -   Role
+        >     > -   Departement
+        >     > -   Password
+        > -   **View**
+        >     > Menampilkan data karyawan seperti :
+        >     >
+        >     > -   Nama
+        >     > -   Username
+        >     > -   Email
+        >     > -   Role
+        >     > -   Departement
+        >     > -   Password
+        > -   **Hapus data karyawan**
+    -   **Kelola Departement**
+        > Kelola Departement menggunakan sitem CRUD seperti berikut :
+        >
+        > -   **Add Departement**
+        >     > -   ID
+        >     > -   Nomor ID
+        >     > -   Nama
+        >     > -   Deskripsi
+        > -   **Edit Departement**
+        >     > -   ID
+        >     > -   Nomor ID
+        >     > -   Nama
+        >     > -   Deskripsi
+        > -   **Hapus Departement**
+    -   **Laporan Pekerjaan**
+        > Menampilkan semua data laporan yang selesai diantaranya sebagai berikut :
+        >
+        > > -   Nomor pekerjaan
+        > > -   ID User
+        > > -   Nama
+        > > -   Pekerjaan
+        > > -   Lokasi
+        > > -   Blok
+        > > -   Tanggal Selesai
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3.  **Karyawan**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    -   **Dashboard**
+        > Menampilkan Grafik pekerjaan yang selesai, pending, progress
+    -   **Daftar Pekerjaan**
+        > Menampilkan semua data daftar pekerjaan yang diberikan seperti :
+        >
+        > -   Nomor pekerjaan
+        > -   Judul Pekerjaan
+        > -   Deskripsi Pekerjaan
+        > -   Tanggal Selesai
+        > -   Status
+        > -   Lokasi
+        > -   Blok
+    -   **Update pekerjaan**
+        > Menampilkan data pekerjaan yang diberikan serta mengupdate status pekerjaan,
+    -   **Data Pekerjaan**
+        > Menampilkan semua data pekerjaan
+    -   **Laporan pekerjaan**
+        > Menampikan data karyawan yang telah terselesaikan dan dapat mengatur range tanggal
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Akses Aplikasi
 
-## 3. Laravel Sponsors
+**Aplikasi** _ini hanya dapat diakses menggunakan semua web browser_
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Installasi Aplikasi
 
-### 3.1. Premium Partners
+Ikuti Langkah-langkah dalam menjalankan website ini dibawah ini :
 
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[WebReinvent](https://webreinvent.com/)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
--   **[Jump24](https://jump24.co.uk)**
--   **[Redberry](https://redberry.international/laravel/)**
--   **[Active Logic](https://activelogic.com)**
--   **[byte5](https://byte5.de)**
--   **[OP.GG](https://op.gg)**
+1. Clone repository ini
+2. Tunggu sampai proses clone selesai
+3. Buka folder project yang sudah di clone melalui terminal
+4. Lakukan composer install ketik
 
-## 4. Contributing
+    ```terminal
+    composer install
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Tunggu sampai composer terinstall selesai
+6. Buat database baru
+7. Copy file .env.example yang ada di dalam folder project dan ubah menjadi .env bagi yang menggunakan git bash bisa mengetikan prompt berikut seperti dibawah
+    ```terminal
+    cp .env.example . env
+    ```
+8. Buka file .env dan ubah konfigurasi database :
+    ```terminal
+    - DB_CONNECTION=sqlite
+    ```
+9. Kemudian migration database dengan menggunakan prompt berikut :
+    ```terminal
+    php artisan migrate
+    ```
+10. Lakukan juga generate key dengan prompt berikut :
+    ```terminal
+    php artisan key:generate
+    ```
+11. Serta aplikasi berbasis website ini membutuhkan nodejs, untuk menjalankannya bisa menggunakan :
+    ```terminal
+    npm run dev
+    atau
+    php artisan serve
+    ```
+12. Kemudian bukalah url berikut :
+    ```terminal
+     ➜  APP_URL: http://simi.test/
+    ```
 
-## 5. Code of Conduct
+## Pengunaan
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Buka url berikut :
 
-## 6. Security Vulnerabilities
+    ```terminal
+    ➜ APP_URL: http://simi.test/
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```
 
-## 7. License
+-   Kemudian lakukanlah proses login, jika sudah ada akun login menggunakan email dan password yang terdaftar jika belum ada lakukanlah registrasi
+    ![Gambar Halaman depan ](Images/home.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Jika sudah terdaftar sebagai karyawan, tinggal menunggu role admin untuk memberikan sebuah task atau pekerjaan.
+    ![Gambar Dashboard Employee ](Images/dbempo.png)
+-   Login akun yang dimana role sebagai admin kemudian tambahkan pekerjaan untuk memberikan pekerjaan kepada karyawan
+    ![Gambar dashboard admin](Images/dbadmin.png)
 
-**Sistem Informasi Monitoring Karyawan**
+-   Setelah diberikan pekerjaan oleh admin, karyawan dapat mengupdate proses pekerjaan tersebut
+
+## Wireframe
+
+Sebelum implementasi pengembangan website **Sistem Informasi Monitoring Karyawan** saya melakukan wireframe dengan menggunakan \***\*Figma\*\*** dalam pembuatanya, berikut gambar wireframe tersebut
+![Gambar Wireframe](Images/aw.jpg)
+
+## Diagram
+
+### Usecase
+
+Diagram dibawah ini menggambarkan interaksi antara aktor yaitu admin dan karyawan ke satu server untuk memastikan semua bagian sistem berjalan sesuai tanggung jawab masing-masing. Melalui koordinasi yang baik dan pembagian tangung jawab yang jelas antar divisi, sistem ini memastikan pelaporan yang jelas dan berkontribusi secara efektif. Dibawah ini merupakan Use Case diagram yang ada di aplikasih monitoring karyawan
+![Gambar Usecase Diagram](Images/ki.jpg)
+
+### Class Diagram
+
+Class Diagram dibawah ini untuk menampilkan objek sistem dan semuakoneksi di antara mereka. Ini adalah alat yang berguna dalam fase analisis atau fase desain.
+
+![Gambar Class Diagram](Images/cs.jpg)
