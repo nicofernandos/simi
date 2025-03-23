@@ -13,7 +13,7 @@
 
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -41,7 +41,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -70,7 +70,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -99,7 +99,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -129,7 +129,7 @@
   </div>
   <div class="grid grid-cols-3 gap-4 xl:grid-cols-2 mt-4">
     <div class="report-card col-span-2 border-sky-900">
-        <div class="card border-sky-950 outline-2">
+        <div class="card border-sky-950 outline-2 rounded rounded-lg border border-blue-500">
             <div class="card-body flex flex-col">
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
@@ -150,7 +150,7 @@
     <!-- end card -->
 
     <div class="report-card col">
-        <div class="card">
+        <div class="card rounded rounded-lg border border-blue-500">
             <div class="card-body flex flex-col">
                 
                 <!-- top -->

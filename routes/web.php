@@ -79,6 +79,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/work', [WorkController::class, 'index'])->name('work');
         Route::get('/viewWork/{id}',[WorkController::class, 'view'])->name('viewWork');
         Route::get('/report', [ReportController::class, 'index'])->name('report');
+        Route::get('/report/pdf', [ReportController::class,'generatePDF'])->name('reportGeneratePDF');
         
         
     });
@@ -96,6 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('manager')->middleware('role:manager')->group(function(){
         Route::get('/',[ManagerController::class,'index'])->name('dashMan');
         Route::get('/report',[ManagerController::class,'report'])->name('reportMan');
+        Route::get('/report/pdf',[ManagerController::class,'reportGenerate'])->name('reportPDFMan');
         Route::get('/depart',[ManagerController::class,'depart'])->name('depart');
         Route::get('/empo',[ManagerController::class,'empo'])->name('empo');
     });

@@ -54,6 +54,12 @@
 
         <!-- Laporan Table -->
         <div class="overflow-x-auto">
+            <div class="mt-4 mb-3 pr-10 text-right ">
+                <a href="{{ route('reportGeneratePDF') }}?start_date={{ $start_date }}&end_date={{ $end_date }}" class="bg-red-500 hover:bg-red-700 text-white font-light font-thin py-2 px-4 rounded rounded-xl"> 
+                    <i class="fad fa-file-pdf"></i>
+                    Print Pdf
+                </a>
+            </div>
             <table class="min-w-full table-auto text-end shadow-md rounded-lg card">
                 <thead class="text-start">
                     <tr class="bg-sky-200">

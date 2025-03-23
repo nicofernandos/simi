@@ -17,7 +17,7 @@
 
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -45,7 +45,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -74,7 +74,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
@@ -103,7 +103,7 @@
   
       <!-- card -->
       <div class="report-card">
-          <div class="card">
+          <div class="card rounded rounded-lg border border-blue-500">
               <div class="card-body flex flex-col">
                   
                   <!-- top -->
